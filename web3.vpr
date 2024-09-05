@@ -1,0 +1,7 @@
+const ipfsClient = require('ipfs-http-client');
+const ipfs = ipfsClient.create({ url: 'https://ipfs.infura.io:5001/api/v0' });
+
+async function uploadFile(file) {
+  const { cid } = await ipfs.add(file);
+  return cid.toString(); // This will return the IPFS CID.
+}
